@@ -1,20 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
 import { useSelector, useDispatch } from "react-redux";
+import { actions } from "./store/index";
 
 function App() {
   const counter = useSelector((state) => state.counter);
   const dispach = useDispatch();
   const increment = () => {
-    dispach({ type: "INCREMENT" });
+    console.log("called inc1");
+    dispach(actions.increment());
   };
 
   const decrement = () => {
-    dispach({ type: "DECREMENT" });
+    dispach(actions.decrement());
   };
 
   const addBy = () => {
-    dispach({ type: "ADD_BY", payload: 10 });
+    dispach(actions.addBy(10));
   };
   return (
     <div>
